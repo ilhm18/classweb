@@ -1040,52 +1040,32 @@
       <div
         class="max-w-xl mx-auto bg-[#23232a] rounded-xl shadow border-2 border-yellow-400 p-4 md:p-8"
       >
-        <table class="w-full text-left mb-4">
-          <tbody>
-            <tr>
-              <td class="py-2 pr-4 text-yellow-400 font-semibold">Dari :</td>
-              <td class="py-2">
-                <input
-                  type="text"
-                  class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-yellow-400 focus:outline-none"
-                  placeholder="Nama pengirim"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 pr-4 text-yellow-400 font-semibold">Kepada :</td>
-              <td class="py-2">
-                <input
-                  type="text"
-                  class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-yellow-400 focus:outline-none"
-                  placeholder="Nama penerima"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 pr-4 text-yellow-400 font-semibold">Pesan :</td>
-              <td class="py-2">
-                <textarea
-                  class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-yellow-400 focus:outline-none"
-                  rows="3"
-                  placeholder="Tulis pesan..."
-                ></textarea>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-          class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-500 transition w-full"
-        >
-          Kirim Pesan
-        </button>
-        <div
-          id="contact-success"
-          class="text-green-500 font-semibold text-center mt-4"
-          style="display: none"
-        >
-          Sukses terkirim !
-        </div>
+        <form id="contact-form">
+          <table class="w-full text-left mb-4">
+            <tbody>
+              <tr>
+                <td class="py-2 pr-4 text-yellow-400 font-semibold">Dari</td>
+                <td class="py-2">
+                  <input name="dari" type="text" class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-yellow-400 focus:outline-none" placeholder="Nama pengirim" required />
+                </td>
+              </tr>
+              <tr>
+                <td class="py-2 pr-4 text-yellow-400 font-semibold">Kepada</td>
+                <td class="py-2">
+                  <input name="kepada" type="text" class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-yellow-400 focus:outline-none" placeholder="Nama penerima" required />
+                </td>
+              </tr>
+              <tr>
+                <td class="py-2 pr-4 text-yellow-400 font-semibold">Pesan</td>
+                <td class="py-2">
+                  <textarea name="pesan" class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-yellow-400 focus:outline-none" rows="3" placeholder="Tulis pesan..." required></textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-500 transition w-full">Kirim Pesan</button>
+        </form>
+        <div id="contact-success" class="text-green-500 font-semibold text-center mt-4" style="display: none">Sukses terkirim !</div>
       </div>
     </section>
 
@@ -1398,6 +1378,26 @@
           }
         });
       }
+    });
+  </script>
+  <script>
+    // Integrasi form Contact Us ke Google Sheets
+    document.addEventListener("DOMContentLoaded", function () {
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbx4LHGX3gmFbykdNQ2Qp8SrgiUHI8U4V4clVG1TuJYAImpZr4nfxPtOycvJPQGdWG9V/exec';
+      const form = document.getElementById('contact-form');
+      const notif = document.getElementById('contact-success');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            notif.style.display = 'block';
+            setTimeout(function() {
+              notif.style.display = 'none';
+            }, 2000);
+            form.reset();
+          })
+          .catch(error => alert('Gagal mengirim!'));
+      });
     });
   </script>
   <script>
