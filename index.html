@@ -1,3 +1,12 @@
+<script>
+  document.getElementById('logo-img').addEventListener('click', function(e) {
+    e.preventDefault();
+    var homeSection = document.getElementById('home');
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -1444,6 +1453,7 @@
     });
   </script>
 </html>
+
 
 
 
