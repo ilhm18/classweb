@@ -140,12 +140,39 @@
   </head>
   <body>
     <!-- 🔸 NAVBAR -->
+    <!-- NAVBAR -->
     <nav
       class="bg-[#23232a] py-4 sticky top-0 z-50 shadow border-b-2 border-yellow-400"
     >
-      <div class="container mx-auto px-4 flex justify-between items-center">
+      <div
+        class="container mx-auto px-4 flex flex-wrap justify-between items-center"
+      >
         <a href="#home" class="font-bold text-xl">Kelas RG</a>
-        <div class="space-x-6">
+        <!-- Hamburger button for mobile -->
+        <button
+          id="nav-toggle"
+          class="md:hidden block text-yellow-400 focus:outline-none"
+          aria-label="Menu"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <!-- Nav links -->
+        <div
+          id="nav-menu"
+          class="w-full md:w-auto md:flex space-y-2 md:space-y-0 md:space-x-4 flex-col md:flex-row flex-wrap mt-2 md:mt-0 hidden md:block bg-[#23232a] md:bg-transparent rounded-lg md:rounded-none p-4 md:p-0"
+        >
           <a href="#home" class="hover:text-gray-700 font-medium">Home</a>
           <a href="#about" class="hover:text-gray-700 font-medium">About</a>
           <a href="#structure" class="hover:text-gray-700 font-medium"
@@ -180,17 +207,22 @@
     </section>
 
     <!-- ℹ️ ABOUT SECTION -->
+    <!-- ABOUT SECTION -->
     <section
       id="about"
-      class="py-20 container mx-auto px-4 bg-transparent rounded-xl fade-up"
+      class="py-10 container mx-auto px-4 bg-transparent rounded-xl fade-up"
     >
-      <div class="w-full flex justify-center mt-12 mb-10">
+      <div class="w-full flex justify-center mt-8 mb-6">
         <div class="h-1 w-2/3 bg-yellow-400 rounded-full opacity-60"></div>
       </div>
-      <h2 class="text-4xl font-bold text-center mb-10 text-yellow-400">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-6 text-yellow-400"
+      >
         Tentang RG
       </h2>
-      <div class="max-w-3xl mx-auto text-center text-gray-300 mb-10">
+      <div
+        class="max-w-3xl mx-auto text-center text-gray-300 mb-6 text-base md:text-lg"
+      >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
           feugiat urna in orci aliquam, a facilisis lectus faucibus.
@@ -200,30 +232,37 @@
           mauris at libero interdum mollis.
         </p>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center"
+      >
         <div
-          class="bg-[#23232a] p-6 rounded-lg shadow border-2 border-yellow-400"
+          class="bg-[#23232a] p-4 rounded-lg shadow border-2 border-yellow-400"
         >
-          <h3 class="text-3xl font-bold mb-2 text-yellow-400">1</h3>
+          <h3 class="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">1</h3>
           <p class="font-semibold text-gray-200">Semester</p>
         </div>
         <div
-          class="bg-[#23232a] p-6 rounded-lg shadow border-2 border-yellow-400"
+          class="bg-[#23232a] p-4 rounded-lg shadow border-2 border-yellow-400"
         >
-          <h3 class="text-3xl font-bold mb-2 text-yellow-400">44</h3>
+          <h3 class="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">
+            44
+          </h3>
           <p class="font-semibold text-gray-200">Mahasiswa</p>
         </div>
         <div
-          class="bg-[#23232a] p-6 rounded-lg shadow border-2 border-yellow-400"
+          class="bg-[#23232a] p-4 rounded-lg shadow border-2 border-yellow-400"
         >
-          <h3 class="text-3xl font-bold mb-2 text-yellow-400">27</h3>
+          <h3 class="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">
+            27
+          </h3>
           <p class="font-semibold text-gray-200">Laki-laki</p>
         </div>
         <div
-          class="bg-[#23232a] p-6 rounded-lg shadow border-2 border-yellow-400"
+          class="bg-[#23232a] p-4 rounded-lg shadow border-2 border-yellow-400"
         >
-          <h3 class="text-3xl font-bold mb-2 text-yellow-400">17</h3>
+          <h3 class="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">
+            17
+          </h3>
           <p class="font-semibold text-gray-200">Perempuan</p>
         </div>
       </div>
@@ -239,24 +278,26 @@
       </h2>
     </section>
 
-    <!-- Tombol Tab -->
-    <div class="flex justify-center mb-8 space-x-4">
+    <!-- TOMBOL TAB -->
+    <!-- TOMBOL TAB -->
+    <div class="flex flex-wrap justify-center mb-8 space-x-2 md:space-x-4">
       <button
         id="btnStructure"
-        class="tab-btn px-6 py-2 border-2 border-yellow-400 rounded-full bg-[#23232a] text-yellow-400 hover:bg-yellow-500 hover:text-black transition active"
+        class="tab-btn px-4 md:px-6 py-2 border-2 border-yellow-400 rounded-full bg-[#23232a] text-yellow-400 hover:bg-yellow-500 hover:text-black transition active"
         onclick="showTab('structure')"
       >
         Struktur
       </button>
       <button
         id="btnSchedule"
-        class="tab-btn px-6 py-2 border-2 border-yellow-400 rounded-full bg-[#23232a] text-yellow-400 hover:bg-yellow-500 hover:text-black transition"
-        onclick="showTab('schedule')"
+        class="tab-btn px-4 md:px-6 py-2 border-2 border-yellow-400 rounded-full bg-[#23232a] text-yellow-400 hover:bg-yellow-500 hover:text-black transition active"
+        onclick="activateScheduleTabAndScroll();"
       >
         Jadwal
       </button>
     </div>
 
+    <!-- STRUKTUR ORGANISASI -->
     <!-- STRUKTUR ORGANISASI -->
     <section
       id="structureTab"
@@ -266,16 +307,16 @@
     >
       <div class="org-tree">
         <div class="org-node wali fade-up">Sophan Sofian (DPA)</div>
-        <div class="org-row">
+        <div class="org-row flex-wrap">
           <div class="org-node fade-up">Ardita (Ketua)</div>
           <div class="org-node fade-up">Ilham (Wakil)</div>
         </div>
-        <div class="org-row">
+        <div class="org-row flex-wrap">
           <div class="org-node fade-up">Mutiara (Sekre)</div>
           <div class="org-node fade-up">Tasya (Bendahara)</div>
         </div>
         <div class="org-node seksi fade-up">Penanggung Jawab Matkul</div>
-        <div class="org-row">
+        <div class="org-row flex-wrap">
           <div class="org-node fade-up">Aldhea (B.Indo)</div>
           <div class="org-node fade-up">Silvia (Agama)</div>
           <div class="org-node fade-up">Hafidh (KSI)</div>
@@ -289,17 +330,18 @@
     </section>
 
     <!-- Jadwal Mingguan -->
+    <!-- JADWAL MINGGUAN -->
     <div id="scheduleTab" class="tab-content fade-up">
-      <div class="schedule-grid" style="grid-template-columns: 1fr; gap: 2rem">
-        <div class="flex gap-6 justify-center">
-          <div class="day-box" style="flex: 1">
+      <div class="schedule-grid" style="grid-template-columns: 1fr; gap: 1rem">
+        <div class="flex flex-wrap gap-4 justify-center">
+          <div class="day-box w-full sm:w-1/2" style="flex: 1">
             <h3>Senin</h3>
             <ul>
               <li>Agama Islam</li>
               <li>Bahasa Indonesia</li>
             </ul>
           </div>
-          <div class="day-box" style="flex: 1">
+          <div class="day-box w-full sm:w-1/2" style="flex: 1">
             <h3>Rabu</h3>
             <ul>
               <li>Konsep SisFor</li>
@@ -307,15 +349,15 @@
             </ul>
           </div>
         </div>
-        <div class="flex gap-6 justify-center mt-8">
-          <div class="day-box" style="flex: 1">
+        <div class="flex flex-wrap gap-4 justify-center mt-4">
+          <div class="day-box w-full sm:w-1/2" style="flex: 1">
             <h3>Kamis</h3>
             <ul>
               <li>Matematika</li>
               <li>Pancasila</li>
             </ul>
           </div>
-          <div class="day-box" style="flex: 1">
+          <div class="day-box w-full sm:w-1/2" style="flex: 1">
             <h3>Jumat</h3>
             <ul>
               <li>Pemrograman</li>
@@ -327,11 +369,14 @@
     </div>
 
     <!-- Bagian Galeri dipindahkan ke paling bawah -->
+    <!-- GALERI -->
     <section
       id="gallery-section"
-      class="py-20 container mx-auto px-4 fade-up visible"
+      class="py-10 container mx-auto px-2 md:px-4 fade-up visible"
     >
-      <h2 class="text-4xl font-bold text-center mb-10 text-yellow-400">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-6 text-yellow-400"
+      >
         Galery mahasigma RG
       </h2>
       <div
@@ -340,7 +385,7 @@
           background: #23232a;
           border-radius: 16px;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-          padding: 32px 24px;
+          padding: 16px 8px;
           position: relative;
         "
       >
@@ -390,7 +435,7 @@
           id="gallery-slider"
           style="
             display: flex;
-            gap: 24px;
+            gap: 12px;
             overflow-x: auto;
             scroll-behavior: smooth;
             padding-bottom: 12px;
@@ -724,14 +769,17 @@
     </section>
 
     <!-- 📞 CONTACT US SECTION -->
-    <section id="contact" class="py-20 container mx-auto px-4 fade-up">
-      <h2 class="text-4xl font-bold text-center mb-10 text-yellow-400">
+    <!-- CONTACT US -->
+    <section id="contact" class="py-10 container mx-auto px-4 fade-up">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-6 text-yellow-400"
+      >
         Contact Us
       </h2>
       <div
-        class="max-w-xl mx-auto bg-[#23232a] rounded-xl shadow border-2 border-yellow-400 p-8"
+        class="max-w-xl mx-auto bg-[#23232a] rounded-xl shadow border-2 border-yellow-400 p-4 md:p-8"
       >
-        <table class="w-full text-left mb-6">
+        <table class="w-full text-left mb-4">
           <tbody>
             <tr>
               <td class="py-2 pr-4 text-yellow-400 font-semibold">Dari :</td>
@@ -788,6 +836,14 @@
   </body>
 
   <script>
+    // Hamburger menu toggle
+    document.addEventListener("DOMContentLoaded", function () {
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+      navToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("hidden");
+      });
+    });
     // Animasi fade-up saat scroll
     function onScrollFadeUp() {
       document.querySelectorAll(".fade-up").forEach(function (el) {
@@ -1004,5 +1060,29 @@
         });
       }
     });
+  </script>
+  <script>
+    function scrollToSchedule() {
+      var scheduleSection = document.getElementById("scheduleTab");
+      if (scheduleSection) {
+        scheduleSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  </script>
+  <script>
+    function activateScheduleTabAndScroll() {
+      // Aktifkan tab jadwal
+      showTab("schedule");
+      // Scroll ke section jadwal
+      setTimeout(function () {
+        var scheduleSection = document.getElementById("scheduleTab");
+        if (scheduleSection) {
+          scheduleSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100); // beri jeda agar tab sudah aktif
+    }
   </script>
 </html>
