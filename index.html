@@ -443,7 +443,7 @@
             >Gallery</a
           >
           <a href="#contact" class="hover:text-gray-700 font-medium"
-            >Contact Us</a
+            >Contact</a
           >
         </div>
       </div>
@@ -1077,8 +1077,29 @@
         <button
           class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-500 transition w-full"
         >
-          Kirim Pesan
-        </button>
+<form id="contact-form">
+  <input name="nama" type="text" placeholder="Nama" required class="mb-2 w-full px-4 py-2 rounded" />
+  <input name="pesan" type="text" placeholder="Pesan" required class="mb-2 w-full px-4 py-2 rounded" />
+  <button type="submit" class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-500 transition w-full">
+    Kirim Pesan
+  </button>
+</form>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbx4LHGX3gmFbykdNQ2Qp8SrgiUHI8U4V4clVG1TuJYAImpZr4nfxPtOycvJPQGdWG9V/exec; // Ganti dengan URL Apps Script Anda
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        document.getElementById('contact-success').style.display = 'block';
+        setTimeout(function() {
+          document.getElementById('contact-success').style.display = 'none';
+        }, 2000);
+        form.reset();
+      })
+      .catch(error => alert('Gagal mengirim!'));
+  });
+</script>
         <div
           id="contact-success"
           class="text-green-500 font-semibold text-center mt-4"
