@@ -346,7 +346,48 @@
       <div
         class="container mx-auto px-4 flex flex-wrap justify-between items-center"
       >
-        <a href="#home" class="font-bold text-xl">Kelas RG</a>
+        <a href="#home" class="logo-link">
+          <img
+            id="logo-img"
+            src="public/LogoPHI.png"
+            alt="Logo RG"
+            style="height: 40px; width: auto; object-fit: contain"
+          />
+          <img
+            id="logo-img"
+            src="public/sisfor.png"
+            alt="Logo RG"
+            style="height: 40px; width: auto; object-fit: contain"
+          />
+        </a>
+        <input
+          type="file"
+          id="logo-upload"
+          accept="image/*"
+          style="display: none"
+        />
+        <script>
+          // Click logo to upload
+          document
+            .querySelector(".logo-link")
+            .addEventListener("click", function (e) {
+              e.preventDefault();
+              document.getElementById("logo-upload").click();
+            });
+          // Change logo on upload
+          document
+            .getElementById("logo-upload")
+            .addEventListener("change", function (e) {
+              var file = e.target.files[0];
+              if (file) {
+                var reader = new FileReader();
+                reader.onload = function (ev) {
+                  document.getElementById("logo-img").src = ev.target.result;
+                };
+                reader.readAsDataURL(file);
+              }
+            });
+        </script>
         <!-- Hamburger button for mobile -->
         <button
           id="nav-toggle"
@@ -726,10 +767,7 @@
             <div class="polaroid-label">Silvia - Dreamer</div>
           </div>
           <div class="polaroid">
-            <img
-              src="public/arif.jpeg"
-              alt="Foto 15"
-            />
+            <img src="public/arif.jpeg" alt="Foto 15" />
             <div class="polaroid-label">Arif - hell yeah!!</div>
           </div>
           <div class="polaroid">
@@ -1413,4 +1451,3 @@
     });
   </script>
 </html>
-
