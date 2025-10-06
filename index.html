@@ -1,4 +1,18 @@
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var logo = document.getElementById('logo-img');
+    if (logo) {
+      logo.onclick = function(e) {
+        e.preventDefault();
+        var homeSection = document.getElementById('home');
+        if (homeSection) {
+          homeSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+    }
+  });
+</script>
+<script>
   document.getElementById('logo-img').addEventListener('click', function(e) {
     e.preventDefault();
     var homeSection = document.getElementById('home');
