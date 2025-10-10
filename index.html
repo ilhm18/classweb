@@ -51,8 +51,30 @@
           body {
             font-family: "Montserrat", "Poppins", sans-serif;
             scroll-behavior: smooth;
-            background: linear-gradient(135deg, #18181b 0%, #23232a 100%);
+            /* Ganti background polos dengan galaksi 3D hitam */
+            background: radial-gradient(ellipse at 50% 50%, #23232a 0%, #18181b 60%, #0a0a0f 100%);
             color: #e0e0e6;
+            /* Tambahkan bintang-bintang kecil dengan pseudo-element */
+            position: relative;
+            overflow-x: hidden;
+          }
+          body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+              repeating-radial-gradient(circle at 20% 30%, #fff2 0px, #fff2 0.5px, transparent 1px 100px),
+              repeating-radial-gradient(circle at 80% 70%, #fff3 0px, #fff3 1px, transparent 2px 100px),
+              repeating-radial-gradient(circle at 60% 10%, #7f5af0 0px, #7f5af0 1px, transparent 2px 100px),
+              repeating-radial-gradient(circle at 40% 80%, #ffe066 0px, #ffe066 1px, transparent 2px 100px);
+            opacity: 0.18;
+            mix-blend-mode: lighten;
+          }
+          /* Jangan ubah background home */
+          #home {
+            /* tetap custom background user */
           }
           nav,
           .org-structure,
