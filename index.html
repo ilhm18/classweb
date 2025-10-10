@@ -1037,7 +1037,7 @@
       <h2
         class="text-3xl md:text-4xl font-bold text-center mb-6 text-yellow-400"
       >
-        Menfess or Songfess?
+        Contact Us
       </h2>
       <div
         class="max-w-xl mx-auto bg-[#23232a] rounded-xl shadow border-2 border-yellow-400 p-4 md:p-8"
@@ -1474,8 +1474,26 @@
       }
     });
   </script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('backsound');
+        // Coba play langsung
+        var playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(function() {
+            // Jika gagal autoplay, play saat user interaksi
+            var playOnUserAction = function() {
+              audio.play();
+              document.removeEventListener('click', playOnUserAction);
+              document.removeEventListener('touchstart', playOnUserAction);
+            };
+            document.addEventListener('click', playOnUserAction);
+            document.addEventListener('touchstart', playOnUserAction);
+          });
+        }
+      });
+    </script>
 </html>
-
 
 
 
